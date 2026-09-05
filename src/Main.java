@@ -28,14 +28,36 @@ public class Main {
         // Arreglo de prueba para los siguientes métodos
         int[] arr = {4, 8, 15, 16, 23, 42};
 
+        String stringArreglo = "";
+        System.out.println("\nArreglo de prueba:");
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            sb.append(arr[i]).append(" ");
+        }
+        System.out.println(sb.toString().trim());
+
         System.out.println("\n----- Segunda seccion -----");
 
         // 1. Verifica si el valor x se encuentra en el arreglo
         System.out.println("\n1. Se encuentra 23? en que posicion?");
-        System.out.println(r.encontrarEnArreglo(23,arr,0));
+        System.out.println(r.encontrarEnArreglo(23,arr,0));  // Debe imprimir 4
+
+        // 2. Valor mas grande en un arreglo
+        System.out.println("\n2. El valor mas grande del arreglo arr:");
+        System.out.println(r.encontrarMaximo(arr, 0));  // Debe imprimir 42
+
+        // 3. Indicar si c1 aparece inmediatamente antes de c2 en cad, al menos una vez
+        System.out.println("\n3. C aparece inmediatamente antes de O en la palabra TACOS?");
+        System.out.println(r.apareceAntes("TACOS",'C','O',0));  // Debe imprimir true
 
         // 4. Cantidad de orejas de conejo hay en el campo
-        System.out.println("4. Orejas de conejo en un campo de 32 conejos:");
-        System.out.println(r.orejasDeConejo(32));
+        System.out.println("\n4. Orejas de conejo en un campo de 32 conejos:");
+        System.out.println(r.orejasDeConejo(32));  // Debe imprimir 64
+
+        // 5. Sumar digitos que haya en la cadena
+        System.out.println("\n5. Suma de digitos en la cadena 1ab29cd20e6fgg10h42!2:");
+        System.out.println(r.sumarDigitosEnCadena("1ab29cd20e6fgg10h42!2", 0));  // Debe imprimir 29
+        System.out.println("1 + 2 + 9 + 2 + 0 + 6 + 1 + 0 + 4 + 2 + 2 = 29");
     }
 }

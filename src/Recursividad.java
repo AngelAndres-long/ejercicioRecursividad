@@ -89,22 +89,73 @@ public class Recursividad {
         return esPrimoAux(numero, divisor + 1);
     }
 
+    // 1. Verifica si el valor x se encuentra en el arreglo
     public int encontrarEnArreglo(int n, int[] arreglo, int indice) {
+        // Si el indice es mayor o igual a la longitud del arreglo o ya se encontro el valor, se hace return
         if (indice >= arreglo.length) {
             return -1;
         } else if (arreglo[indice] == n) {
             return indice;
         } else {
+            // Recursividad que revisa todos los indices del arreglo
             return encontrarEnArreglo(n, arreglo, indice + 1);
         }
     }
 
+    // 2. Valor mas grande en un arreglo
+    public int encontrarMaximo(int[] arreglo, int indice) {
+        // Si indice es la longitud del arreglo - 1, se regresa el ultimo valor encontrado
+        if (indice == arreglo.length - 1) {
+            return arreglo[indice];
+        }
+
+        // Recursividad que busca el valor mas grande
+        int maximoRestante = encontrarMaximo(arreglo, indice + 1);
+        // Evalua cual numero es mayor, el del arreglo o la variable maximoRestante
+        return Math.max(arreglo[indice], maximoRestante);
+    }
+
+    // 3. Indicar si c1 aparece inmediatamente antes de c2 en cad, al menos una vez
+    public boolean apareceAntes(String cad, char c1, char c2, int indice) {
+        // Si el indice es mayor o igual a la longitud de la cadena, ya se evaluo todo y regresa false
+        if (indice >= cad.length() - 1) {
+            return false;
+        }
+        // Si se cumple la condicion solicitada (c1 antes de c2), regresa true
+        if (cad.charAt(indice) == c1 && cad.charAt(indice + 1) == c2) {
+            return true;
+        }
+        // Recursividad para checar todos los indices
+        return apareceAntes(cad, c1, c2, indice + 1);
+    }
+
+    // 4. Cantidad de orejas de conejo hay en el campo
     public int orejasDeConejo(int n) {
         if (n==0) {
             return n;
         } else {
+            // Basicamente duplica la n
             return orejasDeConejo(n-1) + 2;
         }
+    }
+
+    // 5. Sumar digitos que haya en la cadena
+    public int sumarDigitosEnCadena(String cad, int indice) {
+        // Si el indice llega al final de la cadena, regresa 0 para acabar con la recursividad
+        if (indice >= cad.length()) {
+            return 0;
+        }
+
+        char caracterActual = cad.charAt(indice);
+        int valor = 0;
+
+        // Si el caracter actual de la cadena es un VALOR, se guarda
+        if (Character.isDigit(caracterActual)) {
+            valor = Character.getNumericValue(caracterActual);
+        }
+
+        // Recursividad que suma los valores encontrados
+        return valor + sumarDigitosEnCadena(cad, indice + 1);
     }
 
 }
