@@ -89,4 +89,22 @@ public class Recursividad {
         return esPrimoAux(numero, divisor + 1);
     }
 
+    public int encontrarEnArreglo(int n, int[] arreglo, int indice) {
+        if (indice >= arreglo.length) {
+            return -1;
+        } else if (arreglo[indice] == n) {
+            return indice;
+        } else {
+            return encontrarEnArreglo(n, arreglo, indice + 1);
+        }
+    }
+
+    public int orejasDeConejo(int n) {
+        if (n==0) {
+            return n;
+        } else {
+            return orejasDeConejo(n-1) + 2;
+        }
+    }
+
 }

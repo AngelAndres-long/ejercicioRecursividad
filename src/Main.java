@@ -27,5 +27,15 @@ public class Main {
 
         // Arreglo de prueba para los siguientes métodos
         int[] arr = {4, 8, 15, 16, 23, 42};
+
+        System.out.println("\n----- Segunda seccion -----");
+
+        // 1. Verifica si el valor x se encuentra en el arreglo
+        System.out.println("\n1. Se encuentra 23? en que posicion?");
+        System.out.println(r.encontrarEnArreglo(23,arr,0));
+
+        // 4. Cantidad de orejas de conejo hay en el campo
+        System.out.println("4. Orejas de conejo en un campo de 32 conejos:");
+        System.out.println(r.orejasDeConejo(32));
     }
 }
